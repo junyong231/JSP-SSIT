@@ -48,7 +48,7 @@
 
 </div>
 
-<script>
+<script><%-- 
 $("#num").css("text-align","center");
 
 $("#num").on("keydown", function(e) {
@@ -73,7 +73,7 @@ $("#num").on("keydown", function(e) {
 		alert(num2);
 	}
 	
-});
+}); --%>
 </script>
 </body>
 </html>

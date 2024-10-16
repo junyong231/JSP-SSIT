@@ -33,6 +33,7 @@
 </style>
 </head>
 <body>
+
 <header>
   <h1 class="main"><a href="#" style="position: absolute;top:30px;">JYP Ent</a></h1>
   <ul>
@@ -41,8 +42,7 @@
   </ul>
 </header>
 <div>
-  <xmp class="code">
-    
+  <xmp class="code">    
   </xmp>
   <h3>ex01.jsp(동적페이지) - <%= strNow  %></h3>
   <!-- %=  % :  표현식 -->
