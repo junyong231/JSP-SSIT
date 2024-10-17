@@ -20,7 +20,7 @@
   	<servlet-name>now</servlet-name>
   	
   	<!-- 앞으로 url pattern 호출되면 now가 나감 -->
-<!--   	<url-pattern>*.htm</url-pattern> -->
+<!-- 		<url-pattern>*.htm</url-pattern> -->
 
 <!-- /는 context path 다음부터를 의미 -->
   	<url-pattern>/days02/now.do</url-pattern>  <!-- jspPro/days02/now.do 면 호출 -->
