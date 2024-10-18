@@ -24,9 +24,7 @@ if ( id.equals("admin") && pw.equals("1234") ) {
 	//System.out.print("땡");
 	
 	location = "ex08.jsp?error";
-	
 
-	
 }
 // [1] 리다이렉트 (redirect)
 //response.sendRedirect(location);

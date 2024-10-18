@@ -1,0 +1,8 @@
+package days04.board.persistence;
+
+public interface BoardDAO {
+
+	//페이징 처리X + 게시글 목록
+	ArrayList<DTO>
+	
+}

@@ -1,0 +1,37 @@
+package days04;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/days04/empsearch.htm")
+public class EmpSearch extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public EmpSearch() {
+        super();
+        
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. 부서 정보 list에 담기
+		// 2. job 정보 list에 담기
+		// 3. 한 페이지에서 다 일어날거기 때문에 선택 부서+잡 검색된 사원 정보 담기 
+		// 4. 포워딩
+		
+		
+	
+	}//doget
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		
+	}//dopost
+
+}

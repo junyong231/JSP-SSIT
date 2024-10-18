@@ -1,0 +1,42 @@
+package days04.board;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/cstvsboard/write.htm")
+public class Write extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+    public Write() {
+        super();
+    
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Write.doGet() 호출..");
+
+		String path = "/days04/board/write.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response);
+	}//get
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Write.doPost() 호출..");
+		// DB 인서트하고 목록보기페이지 보여주면됨
+		//<!-- write.jsp의 action없어서  http://localhost/jspPro/cstvsboard/write.htm 로 다시 요청 그런데 메서드가 post라서 doPost()호출됨 -->
+		
+		
+		
+		
+	}//post
+
+}
