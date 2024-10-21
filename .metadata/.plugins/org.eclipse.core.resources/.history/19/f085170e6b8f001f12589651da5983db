@@ -1,0 +1,42 @@
+package days04.board.persistence;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import days04.board.domain.BoardDTO;
+
+public interface BoardDAO {
+
+	//페이징 처리X + 게시글 목록
+	ArrayList<BoardDTO> select() throws SQLException; //sql 에러 발생시 부모 클래스(매니저)에 보냄
+
+	// 2. 게시글 쓰기
+	int insert(BoardDTO dto) throws SQLException;
+
+	//3) 조회수 증가
+	int increaseReaded(long seq) throws SQLException;
+
+	//3-2) 게시글 상세보기
+	BoardDTO view(long seq) throws SQLException;
+
+	//5) 게시글 수정
+	int update(BoardDTO dto) throws SQLException;
+	
+	//원래 게시글 비밀번호 가져오기 함수
+	String getOriginalPwd(long seq) throws SQLException;
+	
+	//4) 게시글 삭제
+	int delete(long seq) throws SQLException;
+	
+	
+
+		// 총 레코드 수를 가져오는 쿼리
+		int getTotalRecords() throws SQLException;
+		//1-4)
+		// 총 페이지 수를 가져오는 함수.. 도 필요하겠다
+		int getTotalPages( int numberPerPage ) throws SQLException;
+		
+		
+		// 검색
+		ArrayList<BoardDTO> search(String searchKeyword) throws SQLException; 
+}

@@ -1,0 +1,106 @@
+package days04.board;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.util.DBConn;
+
+import days04.board.domain.BoardDTO;
+import days04.board.persistence.BoardDAOImpl;
+
+
+@WebServlet("/cstvsboard/edit.htm")
+public class Edit extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public Edit() {
+		super();
+
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Edit.doGet() 호출..");
+
+		// 1. 수정하고자 하는 게시글의 정보를 edit.jsp로 넘기자
+		Long seq = Long.parseLong(request.getParameter("seq"));
+		// 시퀀스 번호 받아오기  (jdbc일때는 입력받았음)
+		
+		Connection conn = DBConn.getConnection();
+		BoardDAOImpl dao = new BoardDAOImpl(conn);
+		int rowCount = 0;
+		BoardDTO dto = null;
+		
+		//  + 트랜잭션 처리 필요.
+		try {
+			//1. 조회수 증가는 수정에서 필요없음 !
+			//rowCount =dao.increaseReaded(seq);
+			
+			//2. 해당 글 정보 가져오기
+			dto = dao.view(seq);
+			// 			Rvalue가 dto 리턴해줌 
+			
+	        // 3. 로그 기록 작업
+	        System.out.println("> 게시글 수정 : 로그 기록 작업...");
+		} catch (SQLException e) {
+			 System.out.println("> 게시글 수정 Edit.doGet() : 에러");
+			e.printStackTrace();
+		}
+		DBConn.close();
+		
+		
+		
+		// 2. 포워딩
+
+		request.setAttribute("dto", dto);
+
+		String path = "/days04/board/edit.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response);
+	}
+
+	//http://localhost/jspPro/cstvsboard/edit.htm?seq=2(수정게시글 시퀀스)    요청..
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Edit.doPost() 호출..");
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		String writer = request.getParameter("writer");
+		String pwd = request.getParameter("pwd");
+		String email = request.getParameter("email");
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		int tag = Integer.parseInt( request.getParameter("tag") );
+
+		Connection conn = DBConn.getConnection();
+		BoardDAOImpl dao = new BoardDAOImpl(conn);
+		int rowCount = 0;
+		BoardDTO dto = 
+				new BoardDTO(0, writer, pwd, email, title, null, 0, tag, content);
+
+		   
+		try {
+			rowCount = dao.update(dto);
+	        // 2. 로그 기록 작업
+	        System.out.println("> 게시글 수정 : 로그 기록 작업..."); //일단 오토커밋 생략,,
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//포워딩
+		request.setAttribute("dto", dto);
+
+		String location = "/jspPro/cstvsboard/list.htm";
+		response.sendRedirect(location);
+				
+	}
+
+}

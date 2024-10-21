@@ -1,0 +1,43 @@
+package days04.board.vo;
+
+public class Snippet {
+	 @Override
+	   public int getTotalPages(int numberPerPage
+	         , String searchCondition, String searchWord) throws SQLException {
+	      int totalPages = 0;      
+	      String sql = "SELECT CEIL(COUNT(*)/?) "
+	            + "FROM tbl_cstvsboard ";
+	      // 검색조건에 맞는 WHERE절 추가.S
+	          switch (searchCondition) {
+	         case "t":
+	            sql += " WHERE REGEXP_LIKE(title, ?, 'i')  "; 
+	            break;
+	         case "w":
+	            sql += " WHERE REGEXP_LIKE(writer, ?, 'i')  "; 
+	            break;
+	         case "c":
+	            sql += " WHERE REGEXP_LIKE(content, ?, 'i')  "; 
+	            break;
+	         case "tc":
+	            sql += " WHERE REGEXP_LIKE(title, ?, 'i')  OR REGEXP_LIKE(content, ?, 'i') "; 
+	            break; 
+	        }      
+	         // 검색조건에 맞는 WHERE절 추가.E   
+	          
+	      this.pstmt = this.conn.prepareStatement(sql);
+	      this.pstmt.setInt(1, numberPerPage);
+	      this.pstmt.setString(2, searchWord);
+	      if( searchWord.equals("tc") )  {
+	         this.pstmt.setString(3, searchWord); 
+	      }
+	      
+	      
+	      this.rs =  this.pstmt.executeQuery();      
+	      if( this.rs.next() ) totalPages = rs.getInt(1);      
+	      this.rs.close();
+	      this.pstmt.close();            
+	      return totalPages;
+	   }
+	
+}
+

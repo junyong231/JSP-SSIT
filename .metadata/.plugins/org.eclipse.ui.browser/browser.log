@@ -1,0 +1,50 @@
+
+10월 21, 2024 12:02:26.528 NEW SESSION
+10월 21, 2024 12:02:26.528 [820:7660:1021/120226.513:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:02:26.559 Created TensorFlow Lite XNNPACK delegate for CPU.
+10월 21, 2024 12:02:54.57 [820:7660:1021/120254.057:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:03:43.256 [820:7660:1021/120343.256:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:05:35.929 [820:7660:1021/120535.929:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:09:02.952 [820:7660:1021/120902.952:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:15:50.468 [820:7660:1021/121550.468:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:18:26.452 Created TensorFlow Lite XNNPACK delegate for CPU.
+10월 21, 2024 12:18:26.625 [6300:4108:1021/121826.625:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:18:54.460 [6300:4108:1021/121854.459:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:19:46.542 [6300:4108:1021/121946.541:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:21:13.339 [6300:4108:1021/122113.339:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:24:35.640 [6300:4108:1021/122435.640:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:31:53.834 [6300:4108:1021/123153.834:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 12:44:34.263 [6300:11736:1021/124434.263:ERROR:CONSOLE(1)] "Unknown VE context: border-spacing", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+10월 21, 2024 12:44:34.719 [6300:11736:1021/124434.719:ERROR:CONSOLE(1)] "Unknown VE context: border-spacing", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+10월 21, 2024 12:44:35.431 [6300:11736:1021/124435.431:ERROR:CONSOLE(1)] "Unknown VE context: border-spacing", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+10월 21, 2024 12:44:36.66 [6300:11736:1021/124436.066:ERROR:CONSOLE(1)] "Unknown VE context: border-spacing", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+10월 21, 2024 12:44:36.760 [6300:11736:1021/124436.759:ERROR:CONSOLE(1)] "Unknown VE context: border-spacing", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+10월 21, 2024 12:44:37.626 [6300:11736:1021/124437.626:ERROR:CONSOLE(1)] "Unknown VE context: border-spacing", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+10월 21, 2024 12:44:38.248 [6300:11736:1021/124438.247:ERROR:CONSOLE(1)] "Unknown VE context: border-spacing", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+10월 21, 2024 12:44:38.786 [6300:11736:1021/124438.785:ERROR:CONSOLE(1)] "Unknown VE context: border-spacing", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+10월 21, 2024 12:59:06.379 [6300:11736:1021/125906.379:ERROR:CONSOLE(1)] "Unknown VE context: transition", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+10월 21, 2024 12:59:06.530 [6300:11736:1021/125906.530:ERROR:CONSOLE(1)] "Unknown VE context: transition", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+10월 21, 2024 13:21:57.185 [6300:4108:1021/132157.185:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+10월 21, 2024 15:40:32.847 [6300:9240:1021/154032.846:ERROR:cert_verify_proc_builtin.cc(1063)] CertVerifyProcBuiltin for moneybug.co.kr failed:
+10월 21, 2024 15:40:32.848 ----- Certificate i=0 (O=My Company Ltd,L=Newbury,ST=Berkshire,C=GB) -----
+10월 21, 2024 15:40:32.848 ERROR: No matching issuer found
+10월 21, 2024 15:40:32.858 
+10월 21, 2024 15:40:32.859 
+10월 21, 2024 15:57:57.470 [6300:11736:1021/155757.469:ERROR:CONSOLE(0)] "Unchecked runtime.lastError: The message port closed before a response was received.", source: https://ogs.google.com/u/0/widget/app?eom=1&awwd=1&alb=1&origin=chrome-untrusted%3A%2F%2Fnew-tab-page&origin=chrome%3A%2F%2Fnew-tab-page&cn=app&pid=1&spid=243&hl=ko (0)
+10월 21, 2024 16:08:47.642 Created TensorFlow Lite XNNPACK delegate for CPU.
+10월 21, 2024 16:08:47.855 [792:6500:1021/160847.855:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 16:09:12.446 [792:6500:1021/160912.446:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 16:10:04.251 [792:6500:1021/161004.251:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 16:11:47.727 [792:6500:1021/161147.727:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 16:14:40.859 [792:6500:1021/161440.859:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 16:22:10.19 [792:6500:1021/162210.019:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+
+10월 21, 2024 17:47:34.905 NEW SESSION
+10월 21, 2024 17:47:34.905 Created TensorFlow Lite XNNPACK delegate for CPU.
+10월 21, 2024 17:47:35.122 [17392:5684:1021/174735.122:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 17:47:59.133 [17392:5684:1021/174759.133:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 17:48:43.320 [17392:5684:1021/174843.320:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 17:50:07.286 [17392:5684:1021/175007.286:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 17:53:37.667 [17392:5684:1021/175337.667:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 18:00:31.472 [17392:5684:1021/180031.472:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+10월 21, 2024 19:14:27.853 [17392:812:1021/191427.852:ERROR:CONSOLE(0)] "Unchecked runtime.lastError: The message port closed before a response was received.", source: https://ogs.google.com/u/0/widget/app?eom=1&awwd=1&alb=1&origin=chrome-untrusted%3A%2F%2Fnew-tab-page&origin=chrome%3A%2F%2Fnew-tab-page&cn=app&pid=1&spid=243&hl=ko (0)

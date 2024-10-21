@@ -18,91 +18,71 @@ import org.doit.domain.DeptVO;
 
 import com.util.DBConn;
 
-
-//여기 주석 박으면 서블릿 안됨
-//@WebServlet("/scott/dept")  // url pattern에 /scott/dept 준것과 같다
+// urlPatterns = { "/scott/dept" }
+//@WebServlet("/scott/dept")
 public class ScottDept extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	public ScottDept() {
-		super();
-
+		super(); 
 	}
 
-	//post , get 요청
+	// post 요청, get 요청    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("ScottDept.doGet() 호출 테스트..");
-
-		//여기서 로직 처리한 후에  ex01_dept.jsp로 결과물 담아서 포워딩
-
-
+		System.out.println("> ScottDept.doGet()...");
+		// 로직 처리 부분
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = " SELECT * "
-				+ " FROM dept ";
-		ResultSet rs = null;
-
+		String sql =  " SELECT * " 
+				+ " FROM dept";
+		ResultSet rs = null;   
 		int deptno;
-		String dname, loc;
-
+		String dname, loc;   
 		DeptVO vo = null;
 		ArrayList<DeptVO> list = null;
 		Iterator<DeptVO> ir = null;
 
 		try{
-
 			conn = DBConn.getConnection();
-
+			//System.out.println("> conn = " + conn);
+			//System.out.println("> isClosed = " + conn.isClosed() );
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			if( rs.next() ) {
+			if( rs.next() ){
 				list = new ArrayList<>();
 				do{
 
 					deptno = rs.getInt("deptno");
 					dname = rs.getString("dname");
-					loc = rs.getString("loc");	
+					loc = rs.getString("loc");
 
 					vo = new DeptVO().builder()
-							.deptno(deptno).dname(dname).loc(loc).build();	
-
+							.deptno(deptno).dname(dname).loc(loc)
+							.build();
 					list.add(vo);
-
-
 				}while( rs.next() );
-			} 
-
-			/* System.out.println("> conn = " + conn);
-			System.out.println(">isClosed = " + conn.isClosed() ); //true이면 닫힌거임 false떠야 연결완료 */
-
+			} // if
 		}catch(Exception e){
-
+			e.printStackTrace();
 		}finally{
 			try{
-				pstmt.close();
+				pstmt.close();  
 				DBConn.close();
-
-			} catch(Exception e) {
+			}catch(Exception e){
 				e.printStackTrace();
 			}
+		} // try 
 
-		}
-
-
-		// 포워딩 
-		// 1) jsp 페이지에 전달 + request 객체 저장
+		// ex01_dept.jsp 포워딩.
+		// 1) jsp페이지에 전달 + request 객체 저장.
+		request.setAttribute("list", list);
 		
-		request.setAttribute("list", list); // 가능하면 이름 똑같이 줌.. 
-		
-		String path = "/days04/ex01_dept_jstl.jsp";  // 서버 안에서 이동 ( jspPro 경로 필요 X )  
+//		String path = "/days04/ex01_dept.jsp";
+		String path = "/days04/ex01_dept_jstl.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response); //이제 리퀘스트에 리스트도 있음 전달 ㄱㄱ
-
+		dispatcher.forward(request, response);
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		doGet(request, response);
 	}
 

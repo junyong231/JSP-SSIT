@@ -1,0 +1,80 @@
+package days04.board;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.util.DBConn;
+
+import days04.board.domain.BoardDTO;
+import days04.board.persistence.BoardDAOImpl;
+
+
+@WebServlet("/cstvsboard/delete.htm")
+public class Delete extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public Delete() {
+        super();
+    
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Delete.doGet() 호출..");
+		
+		
+		//포워딩 (가져갈 내용은 없음)
+		String path = "/days04/board/delete.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response);
+	}
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Delete.doPost() 호출..");
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		Long seq = Long.parseLong(request.getParameter("seq"));
+		String ppwd = request.getParameter("pwd"); //파라미터(post방식으로)로 온 비밀번호
+	
+		//DB 연결
+		Connection conn = DBConn.getConnection();
+		BoardDAOImpl dao = new BoardDAOImpl(conn);
+		int rowCount = 0;
+		// DTO 딱히 필요없어서 지움
+		   
+		
+		//삭제하려는 글의 원래 비밀번호와 입력한 파라미터 비밀번호가 같은가 확인?
+		String originPWD ;
+		
+		
+		
+		try {
+			originPWD = dao.getOgPwd(seq);
+	        // 2. 로그 기록 작업
+	        System.out.println("> 게시글 수정 성공 : 로그 기록 작업...");
+		} catch (SQLException e) {
+			System.out.println("> 게시글 수정 실패 : 로그 기록 작업...");
+			e.printStackTrace();
+		}
+		
+		DBConn.close();
+		
+		//리다이렉트
+		
+		String location = "/jspPro/cstvsboard/list.htm";
+		location += rowCount == 1 ? "?edit=success":"?edit=fail";
+		response.sendRedirect(location);
+	}
+
+
+}

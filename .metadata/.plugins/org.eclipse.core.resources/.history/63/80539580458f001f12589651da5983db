@@ -1,0 +1,80 @@
+package days04.board;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.util.DBConn;
+
+import days04.board.domain.BoardDTO;
+import days04.board.persistence.BoardDAOImpl;
+
+
+@WebServlet("/cstvsboard/view.htm")
+public class View extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+    public View() {
+        super();
+      
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("View.doGet() 호출..");
+		String referer =request.getHeader("referer");
+		// 참조자 
+		
+		//System.out.println(referer);
+		// http://localhost/jspPro/cstvsboard/list.htm
+		// 요청한 (이전) 페이지 주소.
+		
+		Long seq = Long.parseLong(request.getParameter("seq"));
+		// 시퀀스 번호 받아오기  (jdbc일때는 입력받았음)
+		
+		Connection conn = DBConn.getConnection();
+		BoardDAOImpl dao = new BoardDAOImpl(conn);
+		int rowCount = 0;
+		BoardDTO dto = null;
+		
+		//  + 트랜잭션 처리 필요.
+		try {
+			//1. 조회수 1증가 (DB ) 
+			rowCount =dao.increaseReaded(seq);
+			
+			//2. 해당 글 정보 가져오기
+			dto = dao.view(seq);
+
+	        // 3. 로그 기록 작업
+	        System.out.println("> 게시글 조회 : 로그 기록 작업...");
+		} catch (SQLException e) {
+			 System.out.println("> 게시글 조회 : 에러");
+			e.printStackTrace();
+		}
+		DBConn.close();
+		
+		
+		// 포워딩 
+		request.setAttribute("dto", dto);
+		
+		String path = "/days04/board/view.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response);
+
+		
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("View.doPost() 호출..");
+	}
+
+}

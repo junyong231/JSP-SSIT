@@ -8,18 +8,17 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://localhost/jspPro/images/SiSt.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google" content="notranslate">
 <link rel="stylesheet" href="http://localhost/jspPro/resources/cdn-main/example.css">
 <script src="http://localhost/jspPro/resources/cdn-main/example.js"></script>
 <style>
  span.material-symbols-outlined{
     vertical-align: text-bottom;
- }
+ }  
 </style>
 </head>
 <body>
 <header>
-  <h1 class="main"><a href="#" style="position: absolute;top:30px;">JYP Ent</a></h1>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">kenik HOme</a></h1>
   <ul>
     <li><a href="#">로그인</a></li>
     <li><a href="#">회원가입</a></li>
@@ -27,57 +26,22 @@
 </header>
 <div>
   <xmp class="code">
-  
-  		- ex03.jsp
-  
-  				[ 상 태 관 리 ]
-  				 - DB에 계속 인서트로 가능
-  				 - 세션/ 쿠키 가능  (아직 안배움)
-  				 - input type=hidden 사용하여 상태관리 
-  				 
-  				 * 어느 것이 나은가는 상황에 따라 다름
-    
-    	ex03.jsp 
-    	-이름
-    	-나이
-    	입력받아서
-    	[Next] 버튼 누르면
-    	
-    	ex03_02.jsp 요청
-    	-주소
-    	-연락처 
-    	입력받고
-    	[Next] 누르면
-    	
-    	ex03_03.jsp 에서 
-    	이름 나이 주소 연락처
-    	출력하는 작업 ?
-    	
-    	
-    	* 이전 페이지의 입력값들을 어떻게 다음 페이지에서 가져와서 쓸 수 있는가?
-    	
-    	
-   
-    	
+       [상태관리] - DB , 세션, 쿠키 ,   [input type=hidden]
+       ex03.jsp  -> ex03_02.jsp -> ex03_03.jsp
+       이름           주소           이름/나이/주소/연락처 출력
+       나이           연락처
+       [Next]        [Next]    
+       
+       이전 페이지의 값을 현재 페이지에서 어떻게 가져와서 사용할 수 있나? 
+             
   </xmp>
-
-<form action="ex03_02.jsp">
-
-	이름 : <input type="text" name="name" value="일지매"><br><br>
-	나이 : <input type="text" name="age" value="34"><br><br>
-	<input type="submit" value="Next">
-
-</form>
   
-  
-</div>
-<script type="text/javascript">
-
-
-
-</script>
-
-
+  <form action="ex03_02.jsp">
+    name : <input type="text" name="name" value="홍길동"><br>
+    age : <input type="text" name="age" value="20"><br>
+    <input type="submit" value="Next">
+  </form>
+</div> 
 </body>
 </html>
 
@@ -87,7 +51,5 @@
 
 
 
-
-
-
+ 
 
