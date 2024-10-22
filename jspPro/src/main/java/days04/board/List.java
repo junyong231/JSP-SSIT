@@ -18,7 +18,7 @@ import days04.board.persistence.BoardDAO;
 import days04.board.persistence.BoardDAOImpl;
 import days04.board.vo.PagingVO;
  
-@WebServlet("/cstvsboard/list.htm")
+//@WebServlet("/cstvsboard/list.htm")
 public class List extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -54,7 +54,7 @@ public class List extends HttpServlet {
 		try {
 		   searchCondition = request.getParameter("searchCondition");
 		}catch(Exception e) {
-		   searchCondition = "title"; //이걸론 안됨 (당연)
+		  // searchCondition = "title"; //이걸론 안됨 (당연)
 	    }		
 		// 검색어가 없는 경우 null
 		String searchWord  = request.getParameter("searchWord");  // 
@@ -89,6 +89,8 @@ public class List extends HttpServlet {
 		// 2. 포워딩
 		request.setAttribute("list", list);
 		request.setAttribute("pvo", pvo);
+		request.setAttribute("searchWord", searchWord);
+		request.setAttribute("searchCondition", searchCondition);
 		
 		String path = "/days04/board/list.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);

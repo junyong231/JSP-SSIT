@@ -21,11 +21,11 @@
 </head>
 <body>
 <header>
-  <h1 class="main"><a href="#" style="position: absolute;top:30px;">kenik HOme</a></h1>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">JYP Ent</a></h1>
   <ul>
     <li><a href="#">로그인</a></li>
     <li><a href="#">회원가입</a></li>
-  </ul>\$ 표현식
+  </ul>
 </header>
 <div>
   <xmp class="code">
@@ -70,7 +70,7 @@
          <c:forEach items="${ list }" var="dto">
            <tr>
              <td>${ dto.seq }</td>
-             <td><a href="<%= contextPath%>/cstvsboard/view.htm?seq=${ dto.seq }">${ dto.title }</a></td>
+             <td><a class="title" href="<%= contextPath%>/cstvsboard/view.htm?seq=${ dto.seq }">${ dto.title }</a></td>
              <td>${ dto.writer }</td>
              <td>${ dto.writedate }</td>
              <td>${ dto.readed }</td>
@@ -78,6 +78,17 @@
          </c:forEach>
        </c:otherwise>
      </c:choose>
+     
+     <script type="text/javascript">
+     
+     $("a.title").attr("href", function (index, oldHref){
+         let npp = ${ pvo.numberPerPage };
+         return `\${oldHref}&currentPage=${param.currentPage}&numberPerPage=\${npp}&searchCondition=${param.searchCondition}&searchWord=${param.searchWord}`
+      });
+     
+	</script>
+     
+     
    </tbody>
    <tfoot>
      <tr>
@@ -144,12 +155,13 @@
     		 
   </script>
   <script>
-  	if ($("#searchCondition").val()==null) {
-  		$("#searchCondition").first().selected();
-	}
+
+  		/* $("#searchCondition").first().selected(); */
+
   
   // 검색조건, 검색어 상태 유지
-     $("#searchCondition").val('${param.searchCondition}');
+     $("#searchCondition").val(
+           '${ empty param.searchCondition ? "t" : param.searchCondition}');
      $("#searchWord").val('${param.searchWord}');
      
      

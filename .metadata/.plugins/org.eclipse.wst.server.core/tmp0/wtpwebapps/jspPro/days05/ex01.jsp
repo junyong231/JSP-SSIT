@@ -18,7 +18,7 @@
 </head>
 <body>
 <header>
-  <h1 class="main"><a href="#" style="position: absolute;top:30px;">kenik HOme</a></h1>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">JYP Ent</a></h1>
   <ul>
     <li><a href="#">로그인</a></li>
     <li><a href="#">회원가입</a></li>
@@ -34,7 +34,7 @@
                            
   </xmp>
   
-  <a href="/jspPro/cstvsboard/list.htm">게시판 목록보기</a>
+  <a href="/jspPro/cstvsboard/list.htm">게시판</a>
   
 </div> 
 </body>

@@ -67,7 +67,7 @@
         <td colspan="4" align="center">
           <a href="<%= contextPath%>/cstvsboard/edit.htm?seq=${ dto.seq }">수정하기</a>
           <a href="<%= contextPath%>/cstvsboard/delete.htm?seq=${ dto.seq }">삭제하기</a>
-          <a href="">HOme</a>
+          <a href="<%= contextPath %>/cstvsboard/list.htm">Home</a>
           <input type="button" id="btnModalDelete" value="모달창 삭제">
         </td>
       </tr>
@@ -75,6 +75,14 @@
   </table>  
 </div> 
 
+<script type="text/javascript">
+
+//HOme 버튼 클릭시
+$("tfoot a:last-of-type").attr("href", function (index, oldHref){
+     return  `\${oldHref}?currentPage=${param.currentPage}&numberPerPage=${param.numberPerPage}&searchCondition=${param.searchCondition}&searchWord=${param.searchWord}`
+});
+
+</script>
 
 <div id="dialog-form" title="삭제 모달창">
   <h2>삭제하기</h2>

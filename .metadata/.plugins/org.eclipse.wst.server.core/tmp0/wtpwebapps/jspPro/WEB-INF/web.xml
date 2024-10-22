@@ -31,4 +31,51 @@
   	
   </servlet-mapping>
   
+  <!-- <error-page>예외 코드 별
+		<error-code>404</error-code>
+		<location>/WEB-INF/error/404.jsp</location>
+  </error-page>
+  
+    <error-page>예외 타입 별
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/WEB-INF/error/nullPointer.jsp</location>
+  </error-page> -->
+  
+  <jsp-config>
+  	<jsp-property-group>
+  		<url-pattern>/days01/*</url-pattern>
+  		<include-prelude>/WEB-INF/inc/variable.jspf</include-prelude>
+  		<include-coda>/WEB-INF/inc/footer.jspf</include-coda>
+  	</jsp-property-group>
+  </jsp-config>
+  
+  	<!-- 
+  	웹 사이트 전체에서 사용할 공통 환경 설정값을 초기화 
+  	application 객체 + 메서드()
+  	-->
+  	<context-param>
+  		<description>DB사용자계정</description>
+  		<param-name>user</param-name>
+  		<param-value>scott</param-value>
+  	</context-param>
+  	  	<context-param>
+  		<description>DB비밀번호</description>
+  		<param-name>password</param-name>
+  		<param-value>ss123$</param-value>
+  	</context-param>
+  	  	<context-param>
+  		<description>파일 경로</description>
+  		<param-name>path</param-name>
+  		<param-value>/days06</param-value>
+  	</context-param>
 </web-app>
+
+
+
+
+
+
+
+
+
+
