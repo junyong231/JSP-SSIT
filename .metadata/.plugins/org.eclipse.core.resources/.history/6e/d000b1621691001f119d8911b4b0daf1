@@ -1,0 +1,6 @@
+package days07.mvc.command;
+
+public class ListHandler { //로직 담당 모델 객체
+	
+
+}

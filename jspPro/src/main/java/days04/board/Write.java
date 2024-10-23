@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.util.DBConn;
 
@@ -26,9 +27,22 @@ public class Write extends HttpServlet {
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("> Write.doGet()...");
-		String path = "/days04/board/write.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);	
+		
+		HttpSession loginCk = request.getSession();
+		if ( loginCk.getAttribute("auth") == null) {
+			System.out.println(loginCk.getAttribute("auth"));
+			
+			String location = "/jspPro/cstvsboard/list.htm";
+			location += "?login=no";
+			response.sendRedirect(location);
+			
+		} else {
+			
+			String path = "/days04/board/write.jsp";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+			dispatcher.forward(request, response);	
+		}
+
 	}
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -66,7 +66,7 @@
       <tr>
         <td colspan="4" align="center">
           <a href="<%= contextPath%>/cstvsboard/edit.htm?seq=${ dto.seq }">수정하기</a>
-          <a href="<%= contextPath%>/cstvsboard/delete.htm?seq=${ dto.seq }">삭제하기</a>
+          <a href="<%= contextPath%>/cstvsboard/delete.htm?seq=${ dto.seq }&writer=${ writer }">삭제하기</a>
           <a href="<%= contextPath %>/cstvsboard/list.htm">Home</a>
           <input type="button" id="btnModalDelete" value="모달창 삭제">
         </td>
@@ -87,7 +87,7 @@ $("tfoot a:last-of-type").attr("href", function (index, oldHref){
 <div id="dialog-form" title="삭제 모달창">
   <h2>삭제하기</h2>
   
-  <form action="<%= contextPath %>/cstvsboard/delete.htm?seq=${param.seq}" method="post">
+  <form action="<%= contextPath %>/cstvsboard/delete.htm?seq=${param.seq}&writer=${ writer }" method="post">
     <table>
       <tr>
         <td colspan="2" align="center">
@@ -143,6 +143,14 @@ dialog = $( "#dialog-form" ).dialog({
 	  $("#spn").show().slideToggle(3000);
   }
 </script>
+  <script>
+
+    ////view.jsp?delAuth=no
+     if('<%= request.getParameter("delAuth")%>' == 'no'){
+    	alert("삭제할 권한이 없습니다");
+    }
+    
+  </script>
 </body>
 </html>
 

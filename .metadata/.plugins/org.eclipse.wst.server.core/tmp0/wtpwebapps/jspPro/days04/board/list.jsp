@@ -3,6 +3,9 @@
 <%
    String contextPath = request.getContextPath();
 %>
+<%@ include file="/WEB-INF/inc/session_auth.jspf" %>
+<!-- 로그인 인증 세션 가져오기 -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,8 +35,11 @@
         list.jsp                   
   </xmp>
   
-  <h2>목록 보기</h2>
-  <a href="<%= contextPath%>/cstvsboard/write.htm">글쓰기</a>
+  <h2>목록 보기</h2>  
+  <a id="write" href="<%= contextPath%>/cstvsboard/write.htm">글쓰기</a>
+
+
+  
   <select id="cmbNumberPerPage" name="cmbNumberPerPage" style="margin: 10px">
   </select>
   <script>
@@ -153,6 +159,11 @@
     	alert("글 쓰기 실패!!!");
     }		 
     		 
+    ////list.jsp?login=no
+     if('<%= request.getParameter("login")%>' == 'no'){
+    	alert("잘못된 접근입니다 로그인하세요!!!");
+    }
+    
   </script>
   <script>
 

@@ -37,11 +37,12 @@ public class View extends HttpServlet {
 		BoardDAOImpl dao = new BoardDAOImpl(conn);
 		int rowCount = 0;
 		BoardDTO dto = null;
-
+		String writer = null;
 		// 트랜잭션 처리 필요한 부분~
 		try { 
 			rowCount = dao.increaseReaded(pseq); 
 			dto = dao.view(pseq);	 
+			writer = dto.getWriter();
 		} catch (SQLException e) { 
 			System.out.println("> View.doGet() Exception...");
 			e.printStackTrace();
@@ -50,6 +51,7 @@ public class View extends HttpServlet {
 
 		// 2. 포워딩
 		request.setAttribute("dto", dto);
+		request.setAttribute("writer", writer);
 
 		String path = "/days04/board/view.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
