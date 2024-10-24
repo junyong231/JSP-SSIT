@@ -1,0 +1,36 @@
+package days07.mvc.command;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+//Get, Post 방식 if문으로 나눠야함
+
+import com.util.ConnectionProvider;
+import com.util.DBConn;
+
+import days04.board.domain.BoardDTO;
+import days04.board.persistence.BoardDAOImpl;
+
+public class DeleteHandler implements CommandHandler{
+
+	@Override
+	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String method = request.getMethod(); // GET , POST 대문자임
+		if (method.equals ("GET") ) {
+
+			return "/days07/board/write.jsp";
+			
+		} else { //POST 
+
+		
+			
+			
+		}
+		
+		
+		return null; // POST면 여기까지 안옴 (리다이렉트됨)
+	}
+
+}

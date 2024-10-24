@@ -34,7 +34,7 @@ public class DispatcherServlet extends HttpServlet {
     	//System.out.println("> DispatcherServlet.init()...");
     	// web.xml  <servlet><init-param><param-name>path</servlet>
     	String path = this.getInitParameter("path");
-    	String realPath = this.getServletContext().getRealPath(path);
+    	String realPath = this.getServletContext().getRealPath(path);//배포경로 - 톰캣 안에..
     	// C:\E\Class\SS20Class\Workspace\JSPClass\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jspPro\WEB-INF\commandHandler.properties
     	//System.out.println(realPath);
     	

@@ -18,7 +18,7 @@ import days04.board.persistence.BoardDAO;
 import days04.board.persistence.BoardDAOImpl;
 import days04.board.vo.PagingVO;
 
-//@WebServlet("/cstvsboard/list.htm")
+@WebServlet("/cstvsboard/list.htm")
 public class List extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,6 +36,8 @@ public class List extends HttpServlet {
 	// list.htm   null
 	// list.htm?currentPage=3
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		System.out.println("> List.doGet()...");
 		try {
 			this.currentPage = Integer.parseInt(request.getParameter("currentPage"));

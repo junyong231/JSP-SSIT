@@ -1,0 +1,9 @@
+package days08;
+
+public class FormatUtil {
+
+	public String number(long price, String pattern) {
+		
+	}
+	
+}

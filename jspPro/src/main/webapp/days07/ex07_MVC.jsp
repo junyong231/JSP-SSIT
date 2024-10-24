@@ -68,7 +68,17 @@
             	  controller 서블릿 -> web.xml 등록
             	  
             	  web.xml 복붙 web_days07.xml : days07까지 사용했던 web.xml
-            
+
+
+            	  톰캣 실행하면.. 
+            	  1. web.xml 읽음 ( 설정대로 처리 ) 
+            	      ㄴ 컨트롤러 서블릿 등록 ( *.do 매핑 )
+            	      ㄴ 커넥션풀 등록 ( DB )
+            	      ㄴ initparam : 모든 요청 컨트롤러가 받고 어디 모델 (핸들러)로 보낼지..
+
+            	
+            	2. days07 a태그 누르면.. 컨트롤러의 doGet()으로 -> URI 뽑아냄 ( 프로퍼티즈의 매핑에 맞게끔 스트링 재단)
+            		-> 모든 핸들러는 커맨드 핸들러를 구현하고 있음 -> 리턴 값은 '뷰'
        </xmp>
        
        <a href="/jspPro/board/list.do">/board/list.do</a>

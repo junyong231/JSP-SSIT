@@ -1,0 +1,27 @@
+package days07.mvc.command;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+//Get, Post 방식 if문으로 나눠야함
+
+public class WriteHandler implements CommandHandler{
+
+	@Override
+	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String method = request.getMethod(); // GET , POST 대문자임
+		if (method.equals ("GET") ) {
+
+			String path = "/days07/board/write.jsp";
+			
+		} else { //POST 
+
+			
+			
+			
+		}
+		
+		
+		return null;
+	}
+
+}
